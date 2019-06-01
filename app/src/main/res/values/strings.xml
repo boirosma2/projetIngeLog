@@ -13,6 +13,7 @@
     <string name="down">➖</string>
     <string name="on">ON</string>
     <string name="off">OFF</string>
+    <string name="stop">STOP</string>
     <string name="vitesse_robot">Vitesse robot</string>
     <string name="direction_robot">Direction robot</string>
     <string name="title_activity_control_panel">ControlPanel</string>

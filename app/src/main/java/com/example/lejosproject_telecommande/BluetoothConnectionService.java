@@ -15,6 +15,7 @@ public class BluetoothConnectionService {
     private String MAC;
     private BluetoothAdapter localAdapter;
     private BluetoothSocket socketRobot;
+    private OutputStreamWriter out;
     private Context context;
     private PrintStream sender;
 
@@ -47,13 +48,11 @@ public class BluetoothConnectionService {
             try {
                 socketRobot = robot.createRfcommSocketToServiceRecord(uuid);
                 socketRobot.connect();
-                send((byte) 1);
-                socketRobot.close();
+                out = new OutputStreamWriter(socketRobot.getOutputStream());
                 success = "1";
             } catch (IOException e) {
                 success = e.getMessage();
             }
-            //success = "1";
         } else {
             success += " - Le bluetooth est désactivé";
         }
@@ -64,9 +63,21 @@ public class BluetoothConnectionService {
         this.MAC = MAC;
     }
 
-    public void send(byte message) throws IOException {
-        OutputStreamWriter out = new OutputStreamWriter(socketRobot.getOutputStream());
-        out.write(message);
-        out.flush();
+    public void send(byte message) {
+        try{
+            out.write(message);
+            out.flush();
+        } catch (IOException ioe) {
+            System.out.println("IO Exception");
+        }
+    }
+
+    public void stopBluetooth() {
+        try{
+            socketRobot.close();
+            out.close();
+        } catch (IOException ioe) {
+            System.out.println("IO Exception");
+        }
     }
 }

@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
                 String success;
                 resultMAC.setText("");
                 MAC = inputMACReseau.getText().toString();
-                //blService.setMAC("00:16:53:56:5F:C2");
                 if(pattern.matcher(MAC).matches()) {
                     blService.setMAC(MAC);
+                    //blService.setMAC("00:16:53:56:5F:C2");
                     success = blService.connectRobot();
                     if (success.equals("1")) {
                         Intent intent = new Intent(MainActivity.this, ControlePanel.class);
