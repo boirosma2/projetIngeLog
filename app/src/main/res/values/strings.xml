@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LeJOSProject_telecommande</string>
+    <string name="app_name">Télécommande EV3</string>
     <string name="connection_bluetooth">Connection bluetooth</string>
     <string name="nullText">Null</string>
     <string name="mac_reseau">Adresse MAC robot</string>
