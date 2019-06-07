@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class ControlePanel extends AppCompatActivity {
-
+    //Variable globale
     BluetoothConnectionService bluetoothConnectionService;
 
     @Override
@@ -15,6 +15,9 @@ public class ControlePanel extends AppCompatActivity {
 
         this.bluetoothConnectionService = BluetoothConnectionService.getInstance(this);
     }
+
+    //Chaque méthode correspondent au onClick d'un des boutons de la vue télécommande
+    //Elles appelent la méthode request qui permet d'envoyer une requête au robot
 
     public void on(View view){
         request((byte) 0);

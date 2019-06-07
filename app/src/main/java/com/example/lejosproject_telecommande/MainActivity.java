@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
-
+    //Varaibles globales
     EditText inputMACReseau;
     TextView resultMAC;
     BluetoothConnectionService blService;
@@ -22,10 +22,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Récupération des éléments de la vue
         this.inputMACReseau = findViewById(R.id.editMACRobot);
         this.resultMAC = findViewById(R.id.resultIP);
+
         this.blService = BluetoothConnectionService.getInstance(this);
 
+        //Contrôle l'événement onClick sur le bouton connection bluetooth
         final Button connectButton = findViewById(R.id.connectButton);
         connectButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 String success;
                 resultMAC.setText("");
                 MAC = inputMACReseau.getText().toString();
+                //Vérification de la conformité de l'adresse MAC saisie
                 if(pattern.matcher(MAC).matches()) {
                     blService.setMAC(MAC);
                     //blService.setMAC("00:16:53:56:5F:C2");
