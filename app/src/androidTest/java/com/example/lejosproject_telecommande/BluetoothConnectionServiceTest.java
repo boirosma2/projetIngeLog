@@ -25,7 +25,7 @@ public class BluetoothConnectionServiceTest {
     }
 
     @Test
-    public void connectRobot() {
+    public void testConnectRobot() {
         assertEquals(bluetoothState, "1");
     }
 

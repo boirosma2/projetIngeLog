@@ -25,7 +25,6 @@ public class ControlePanelTest {
     @Rule
     public ActivityTestRule<ControlePanel> controlpanel = new ActivityTestRule<ControlePanel>(ControlePanel.class);
     private ControlePanel mActivity = null;
-    private boolean foo = false;
 
     Joystick joystick;
 
